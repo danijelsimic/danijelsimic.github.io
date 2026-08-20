@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    const currentYear = document.getElementById('current-year');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
+
     VANTA.NET({
         el: "#header",
         mouseControls: true,
@@ -9,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         scale: 1.00,
         scaleMobile: 1.00,
         color: 0x3498db
-})
+    });
+
     AOS.init();
 
     const arrow = document.querySelector('.arrow');
@@ -25,7 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopButton = document.querySelector('#scrollToTop');
     if (scrollToTopButton) {
         window.addEventListener('scroll', function() {
-            if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
+            if (
+                window.scrollY + window.innerHeight >=
+                document.documentElement.scrollHeight
+            ) {
                 scrollToTopButton.classList.remove('hidden');
             } else {
                 scrollToTopButton.classList.add('hidden');
@@ -34,9 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         scrollToTopButton.addEventListener('click', function(e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });
-
-document.getElementById('current-year').textContent = new Date().getFullYear();
